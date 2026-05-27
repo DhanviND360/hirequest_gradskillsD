@@ -1,0 +1,674 @@
+/* ============================================================
+   World Map Page Styles
+   ============================================================ */
+
+.world-map-page {
+  display: grid;
+  grid-template-columns: 300px 1fr 320px;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+}
+
+/* --- Left Panel --- */
+.map-left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  overflow-y: auto;
+  border-right: 1px solid var(--border-subtle);
+  background: rgba(6, 6, 15, 0.5);
+}
+
+.panel-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+}
+
+.panel-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.panel-card-title {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.panel-card-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Player Status */
+.player-status-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.player-level-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3px solid var(--purple-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.player-title {
+  color: var(--accent-green);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.player-xp-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.xp-bar-container {
+  width: 100%;
+  height: 6px;
+  background: rgba(124, 58, 237, 0.15);
+  border-radius: var(--radius-full);
+  margin-top: 4px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple-600), var(--purple-400));
+  border-radius: var(--radius-full);
+  transition: width 1s ease;
+}
+
+.player-stats-row {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.player-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+}
+
+.player-stat .stat-icon-sm {
+  font-size: 0.9rem;
+}
+
+.player-stat .stat-value-sm {
+  font-weight: 700;
+  font-family: var(--font-display);
+}
+
+.player-stat .stat-label-sm {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Active Quest */
+.quest-progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin: var(--space-sm) 0;
+}
+
+.quest-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.quest-info h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.quest-rewards {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.75rem;
+  margin-top: var(--space-sm);
+}
+
+.quest-reward {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.quest-reward .gold {
+  color: var(--accent-gold);
+}
+
+.quest-reward .gem {
+  color: var(--accent-cyan);
+}
+
+/* Boss Fight */
+.boss-card-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.boss-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--accent-red), #b91c1c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  border: 2px solid rgba(239, 68, 68, 0.4);
+}
+
+.boss-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.boss-subtitle {
+  color: var(--accent-green);
+  font-size: 0.78rem;
+}
+
+.boss-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.boss-meta .difficulty {
+  color: var(--accent-red);
+  font-weight: 600;
+}
+
+.view-details-btn {
+  width: 100%;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  font-family: var(--font-display);
+}
+
+.view-details-btn:hover {
+  border-color: var(--purple-500);
+  color: var(--purple-400);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+/* --- Center Map --- */
+.map-center {
+  position: relative;
+  overflow: hidden;
+}
+
+.map-location-bar {
+  position: absolute;
+  top: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  padding: 8px 20px;
+  z-index: 10;
+}
+
+.location-pin {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--accent-green);
+  font-weight: 500;
+}
+
+.location-pin .ping {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  position: relative;
+}
+
+.location-pin .ping::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-green);
+  animation: radarPing 2s ease-out infinite;
+}
+
+.radar-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  font-size: 0.78rem;
+  color: var(--accent-green);
+  font-weight: 500;
+}
+
+.radar-badge .radar-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Leaflet overrides */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-primary) !important;
+}
+
+.leaflet-tile-pane {
+  filter: brightness(0.8) saturate(0.9) contrast(1.1) hue-rotate(200deg);
+}
+
+.leaflet-control-zoom {
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  overflow: hidden;
+}
+
+.leaflet-control-zoom a {
+  background: var(--bg-card-solid) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--bg-card-hover) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-card-solid) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-glow-purple) !important;
+  color: var(--text-primary) !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-card-solid) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--text-muted) !important;
+}
+
+/* Custom Job Pin */
+.job-pin {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+  border: 2px solid;
+}
+
+.job-pin:hover {
+  transform: scale(1.2);
+}
+
+.job-pin.quest {
+  background: rgba(34, 197, 94, 0.2);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
+
+.job-pin.boss {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+.job-pin.side-quest {
+  background: rgba(124, 58, 237, 0.2);
+  border-color: var(--purple-400);
+  color: var(--purple-400);
+}
+
+.job-pin.guild {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+/* Job popup card */
+.job-popup {
+  min-width: 240px;
+  padding: var(--space-sm);
+}
+
+.job-popup-type {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.job-popup-type.quest { color: var(--accent-green); }
+.job-popup-type.boss { color: var(--accent-red); }
+.job-popup-type.side-quest { color: var(--purple-400); }
+
+.job-popup-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 2px;
+}
+
+.job-popup-company {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+.job-popup-meta {
+  display: flex;
+  gap: var(--space-md);
+  font-size: 0.75rem;
+  margin-bottom: var(--space-sm);
+}
+
+.job-popup-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: var(--space-sm);
+}
+
+.job-popup-skills span {
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(124, 58, 237, 0.1);
+  color: var(--purple-300);
+  font-size: 0.7rem;
+}
+
+.job-popup-btn {
+  width: 100%;
+  padding: 6px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--purple-600), var(--purple-700));
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: var(--font-display);
+}
+
+.job-popup-btn:hover {
+  box-shadow: var(--shadow-glow-purple);
+}
+
+/* --- Right Panel --- */
+.map-right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  overflow-y: auto;
+  border-left: 1px solid var(--border-subtle);
+  background: rgba(6, 6, 15, 0.5);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+  transition: border-color var(--transition-fast);
+}
+
+.search-bar:focus-within {
+  border-color: var(--purple-500);
+}
+
+.search-bar input {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.search-bar input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-bar .search-icon {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.filter-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--purple-500);
+  color: var(--purple-400);
+}
+
+/* Nearby Opportunities */
+.nearby-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.nearby-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-fast);
+  cursor: pointer;
+}
+
+.nearby-item:hover {
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.nearby-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.nearby-icon.green {
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.nearby-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.nearby-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+
+.nearby-company {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.nearby-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.nearby-distance {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.nearby-match {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.view-all-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: var(--space-sm);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color var(--transition-fast);
+  cursor: pointer;
+}
+
+.view-all-link:hover {
+  color: var(--purple-400);
+}
+
+/* Map Legend */
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-dot.green { background: var(--accent-green); box-shadow: 0 0 6px rgba(34, 197, 94, 0.4); }
+.legend-dot.red { background: var(--accent-red); box-shadow: 0 0 6px rgba(239, 68, 68, 0.4); }
+.legend-dot.purple { background: var(--purple-400); box-shadow: 0 0 6px rgba(124, 58, 237, 0.4); }
+.legend-dot.gold { background: var(--accent-gold); box-shadow: 0 0 6px rgba(245, 158, 11, 0.4); }
+.legend-dot.cyan { background: var(--accent-cyan); box-shadow: 0 0 6px rgba(6, 182, 212, 0.4); }
+.legend-dot.pink {
+  background: #ec4899;
+  box-shadow: 0 0 6px rgba(236, 72, 153, 0.4);
+  position: relative;
+}
+
+.legend-dot.pink::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid #ec4899;
+  animation: radarPing 2s ease-out infinite;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1200px) {
+  .world-map-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .map-left-panel,
+  .map-right-panel {
+    display: none;
+  }
+}

@@ -1,0 +1,229 @@
+/* ============================================================
+   Inventory Page Styles
+   ============================================================ */
+
+.inventory-page {
+  padding: var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-xl);
+}
+
+@media (max-width: 968px) {
+  .inventory-page {
+    grid-template-columns: 1fr;
+    padding: var(--space-md);
+  }
+}
+
+/* Left Column - Inventory Grid */
+.inventory-main {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.inventory-grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.inventory-grid-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.inventory-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+@media (max-width: 480px) {
+  .inventory-slots-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.inventory-slot {
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.02);
+  border: 2px dashed rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.inventory-slot:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.inventory-slot.occupied {
+  border-style: solid;
+  border-color: var(--border-subtle);
+  background: rgba(26, 26, 62, 0.6);
+}
+
+.inventory-slot.occupied:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
+}
+
+.inventory-slot.selected {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+.inventory-item-icon {
+  font-size: 2.8rem;
+  margin-bottom: var(--space-xs);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.inventory-item-name-sm {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 var(--space-xs);
+  color: var(--text-secondary);
+}
+
+.inventory-slot-rarity {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.inventory-slot-rarity.legendary { background: var(--accent-gold); box-shadow: 0 0 8px var(--accent-gold); }
+.inventory-slot-rarity.epic { background: var(--accent-purple); box-shadow: 0 0 8px var(--accent-purple); }
+.inventory-slot-rarity.rare { background: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
+.inventory-slot-rarity.common { background: var(--text-muted); }
+
+/* Right Column - Item Details & Upload */
+.item-details-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: var(--space-xl);
+}
+
+.item-details-header {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.item-details-icon-large {
+  font-size: 4.5rem;
+  margin-bottom: var(--space-sm);
+  filter: drop-shadow(0 0 20px rgba(124, 58, 237, 0.3));
+}
+
+.item-details-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.item-details-rarity-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-pill);
+  letter-spacing: 1px;
+}
+
+.item-details-rarity-badge.legendary { background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-gold); color: var(--accent-gold); }
+.item-details-rarity-badge.epic { background: rgba(124, 58, 237, 0.15); border: 1px solid var(--accent-purple); color: var(--accent-purple-light); }
+.item-details-rarity-badge.rare { background: rgba(6, 182, 212, 0.15); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); }
+.item-details-rarity-badge.common { background: rgba(107, 107, 154, 0.15); border: 1px solid var(--text-muted); color: var(--text-muted); }
+
+.item-description-box {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+}
+
+.item-stats-list {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.item-stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: var(--space-xs) 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.item-stat-row:last-child {
+  border-bottom: none;
+}
+
+.item-stat-name {
+  color: var(--text-muted);
+}
+
+.item-stat-value {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.item-stat-value.bonus {
+  color: var(--accent-green);
+}
+
+/* Upload Interface */
+.item-upload-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.item-file-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+.inventory-empty-slot-msg {
+  color: var(--text-muted);
+  text-align: center;
+  padding: var(--space-xl);
+  font-size: 0.95rem;
+}
